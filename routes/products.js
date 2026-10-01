@@ -1,15 +1,11 @@
 const express = require('express');
 const router = express.Router();
 const multer = require('multer');
-const path = require('path');
+const { put } = require('@vercel/blob');
 const Product = require('../models/Product');
 
 // Image upload setup
-const storage = multer.diskStorage({
-  destination: 'uploads/',
-  filename: (req, file, cb) => cb(null, Date.now() + path.extname(file.originalname))
-});
-const upload = multer({ storage });
+const upload = multer({ storage: multer.memoryStorage() });
 
 // GET all products (with optional ?category= filter)
 router.get('/', async (req, res) => {
@@ -30,7 +26,14 @@ router.post('/', upload.single('image'), async (req, res) => {
   if (req.headers['x-admin-key'] !== process.env.ADMIN_KEY)
     return res.status(401).json({ error: 'Unauthorized' });
   const data = { ...req.body, price: Number(req.body.price) };
-  if (req.file) data.image = '/uploads/' + req.file.filename;
+if (req.file) {
+  const blob = await put(req.file.originalname, req.file.buffer, {
+    access: 'public',
+    addRandomSuffix: true
+  });
+
+  data.image = blob.url;
+}
   const product = await Product.create(data);
   res.status(201).json(product);
 });
