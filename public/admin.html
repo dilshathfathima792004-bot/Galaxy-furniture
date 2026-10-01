@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin | Galaxy Furniture</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <nav>
+      <div class="logo">GALAXY <span>ADMIN</span></div>
+      <ul><li><a href="index.html">← Back to site</a></li></ul>
+    </nav>
+  </header>
+
+  <main class="page">
+    <div id="login-box">
+      <h2>Admin Login</h2>
+      <input type="password" id="admin-key" placeholder="Enter admin key">
+      <button class="btn" onclick="login()">Login</button>
+    </div>
+
+    <div id="admin-panel" style="display:none">
+      <h2>Add Product</h2>
+      <form id="add-product-form">
+        <input type="text" id="p-name" placeholder="Product name *" required>
+        <select id="p-category">
+          <option>Sofa</option><option>Bed</option><option>Dining</option>
+          <option>Wardrobe</option><option>TV Stand</option><option>Other</option>
+        </select>
+        <input type="number" id="p-price" placeholder="Price (₹) *" required>
+        <select id="p-branch"><option>Both</option><option>Chennai</option><option>Karur</option></select>
+        <input type="file" id="p-image" accept="image/*">
+        <textarea id="p-desc" placeholder="Description"></textarea>
+        <button type="submit" class="btn">Add Product</button>
+      </form>
+
+      <h2>Add Blog Post</h2>
+      <form id="add-blog-form">
+        <input type="text" id="b-title" placeholder="Blog title *" required>
+        <textarea id="b-content" placeholder="Content *" rows="6" required></textarea>
+        <button type="submit" class="btn">Publish</button>
+      </form>
+
+      <h2>Customer Inquiries</h2>
+      <div id="inquiry-list"></div>
+    </div>
+  </main>
+
+  <script src="admin.js"></script>
+</body>
+</html>
