@@ -3,44 +3,461 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contact | Galaxy Furniture</title>
+
+  <title>Enquire | GALXY FURN</title>
+
   <link rel="stylesheet" href="style.css">
+
+  <style>
+    .enquiry-page {
+      background: #e7dece;
+      color: #0d192b;
+    }
+
+    .enquiry-hero {
+      padding: 95px 8% 70px;
+    }
+
+    .enquiry-eyebrow {
+      margin-bottom: 18px;
+      color: #702236;
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+    }
+
+    .enquiry-hero h1 {
+      max-width: 950px;
+      margin: 0;
+
+      font-family: var(--serif);
+      font-size: clamp(4rem, 8vw, 7rem);
+      line-height: 0.9;
+      font-weight: 400;
+      letter-spacing: -0.04em;
+    }
+
+    .enquiry-hero h1 span {
+      color: #702236;
+      font-style: italic;
+    }
+
+    .enquiry-hero p {
+      max-width: 560px;
+      margin-top: 30px;
+
+      color: #4f5967;
+      font-size: 0.92rem;
+      line-height: 1.8;
+    }
+
+    .enquiry-main {
+      display: grid;
+      grid-template-columns: 1fr 0.72fr;
+      gap: 50px;
+
+      padding: 0 6% 110px;
+    }
+
+    .enquiry-form-panel {
+      padding: 55px;
+      background: #f0e8da;
+    }
+
+    .enquiry-form-panel h2,
+    .enquiry-info h2 {
+      margin: 0 0 28px;
+
+      font-family: var(--serif);
+      font-size: 3rem;
+      font-weight: 400;
+      line-height: 1;
+    }
+
+    #inquiry-form {
+      display: grid;
+      gap: 16px;
+    }
+
+    #inquiry-form input,
+    #inquiry-form textarea {
+      width: 100%;
+      box-sizing: border-box;
+
+      padding: 16px 0;
+
+      border: none;
+      border-bottom: 1px solid rgba(13, 25, 43, 0.25);
+
+      background: transparent;
+      color: #0d192b;
+
+      font-family: inherit;
+      font-size: 0.85rem;
+
+      outline: none;
+    }
+
+    #inquiry-form textarea {
+      min-height: 130px;
+      resize: vertical;
+    }
+
+    #inquiry-form input:focus,
+    #inquiry-form textarea:focus {
+      border-bottom-color: #702236;
+    }
+
+    #inquiry-form button {
+      width: fit-content;
+      margin-top: 12px;
+
+      padding: 15px 24px;
+
+      border: 1px solid #c4a66a;
+
+      background: #702236;
+      color: #f4eee3;
+
+      font-family: inherit;
+      font-size: 0.67rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+
+      cursor: pointer;
+      transition: 0.25s ease;
+    }
+
+    #inquiry-form button:hover {
+      background: #0d192b;
+      border-color: #0d192b;
+    }
+
+    #form-status {
+      margin: 8px 0 0;
+      font-size: 0.8rem;
+    }
+
+    .enquiry-info {
+      padding: 55px;
+
+      background: #0d192b;
+      color: #f4eee3;
+    }
+
+    .enquiry-info h2 {
+      color: #f4eee3;
+    }
+
+    .enquiry-info-intro {
+      margin-bottom: 42px;
+
+      color: rgba(244, 238, 227, 0.68);
+      font-size: 0.85rem;
+      line-height: 1.8;
+    }
+
+    .info-block {
+      margin-bottom: 32px;
+    }
+
+    .info-label {
+      margin-bottom: 8px;
+
+      color: #c4a66a;
+      font-size: 0.62rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+
+    .info-block p {
+      margin: 0;
+
+      color: #f4eee3;
+      font-size: 0.85rem;
+      line-height: 1.8;
+    }
+
+    .info-block a {
+      color: #f4eee3;
+      text-decoration: none;
+    }
+
+    .info-block a:hover {
+      color: #c4a66a;
+    }
+
+    .whatsapp-enquiry {
+      display: inline-block;
+      margin-top: 10px;
+
+      padding: 13px 18px;
+
+      border: 1px solid #c4a66a;
+
+      color: #f4eee3 !important;
+
+      font-size: 0.65rem !important;
+      font-weight: 700;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+
+      transition: 0.25s ease;
+    }
+
+    .whatsapp-enquiry:hover {
+      background: #702236;
+      border-color: #702236;
+    }
+
+    @media (max-width: 900px) {
+      .enquiry-main {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .enquiry-hero {
+        padding: 70px 7% 55px;
+      }
+
+      .enquiry-hero h1 {
+        font-size: 4rem;
+      }
+
+      .enquiry-main {
+        padding: 0 5% 80px;
+      }
+
+      .enquiry-form-panel,
+      .enquiry-info {
+        padding: 35px;
+      }
+    }
+  </style>
 </head>
-<body>
-  <header>
-    <nav>
-      <div class="logo">GALAXY <span>FURNITURE</span></div>
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="products.html">Products</a></li>
-        <li><a href="blog.html">Blog</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
+
+<body class="enquiry-page">
+
+  <!-- HEADER -->
+
+  <header class="site-header">
+
+    <nav class="navbar">
+
+      <a href="index.html" class="brand">
+        <span class="brand-title">GALXY FURN</span>
+        <span class="brand-tagline">FROM SPACE TO SIGNATURE</span>
+      </a>
+
+      <div class="nav-links">
+
+        <a href="index.html">Home</a>
+
+        <a href="products.html">Collections</a>
+
+        <a href="blog.html">Journal</a>
+
+        <a href="index.html#showroom">Showroom</a>
+
+      </div>
+
+      <div class="nav-actions">
+
+        <a
+          href="https://wa.me/917448882468"
+          class="nav-whatsapp"
+          target="_blank"
+        >
+          WhatsApp
+        </a>
+
+        <a href="signin.html" class="nav-signin">
+          Sign In
+        </a>
+
+      </div>
+
     </nav>
+
   </header>
 
-  <main class="page">
-    <h1>Contact Us / Enquire</h1>
-    <div class="contact-wrap">
-      <form id="inquiry-form">
-        <input type="text" id="name" placeholder="Your Name *" required>
-        <input type="tel" id="phone" placeholder="Phone Number *" required>
-        <input type="email" id="email" placeholder="Email (optional)">
-        <textarea id="message" placeholder="What are you looking for? *" rows="5" required></textarea>
-        <button type="submit" class="btn">Send Enquiry</button>
-        <p id="form-status"></p>
-      </form>
-      <div class="contact-info">
-        <h3>Showroom</h3>
-        <p>No.3, Easwaran Nagar, Vellalar Street, Chennai - 600 075</p>
-        <p>📞 74488 82468 / 70922 22468</p>
-        <p>✉️ galaxytfm@gmail.com</p>
-        <a class="btn whatsapp" href="https://wa.me/917448882468" target="_blank">Chat on WhatsApp</a>
+
+  <!-- ENQUIRY -->
+
+  <main>
+
+    <section class="enquiry-hero">
+
+      <div class="enquiry-eyebrow">
+        GALXY FURN · CHENNAI
       </div>
-    </div>
+
+      <h1>
+        Let's create a space<br>
+        <span>worth coming home to.</span>
+      </h1>
+
+      <p>
+        Tell us what you're looking for and our team will
+        help you explore the right furniture for your space.
+      </p>
+
+    </section>
+
+
+    <section class="enquiry-main">
+
+      <!-- FORM -->
+
+      <div class="enquiry-form-panel">
+
+        <h2>
+          Start a conversation.
+        </h2>
+
+        <form id="inquiry-form">
+
+          <input
+            type="text"
+            id="name"
+            placeholder="Your name *"
+            required
+          >
+
+          <input
+            type="tel"
+            id="phone"
+            placeholder="Phone number *"
+            required
+          >
+
+          <input
+            type="email"
+            id="email"
+            placeholder="Email address"
+          >
+
+          <textarea
+            id="message"
+            placeholder="Tell us what you're looking for *"
+            required
+          ></textarea>
+
+          <button type="submit">
+            Send enquiry
+          </button>
+
+          <p id="form-status"></p>
+
+        </form>
+
+      </div>
+
+
+      <!-- BUSINESS INFORMATION -->
+
+      <aside class="enquiry-info">
+
+        <h2>
+          Visit GALXY.
+        </h2>
+
+        <p class="enquiry-info-intro">
+          See our furniture in person, discuss your requirements,
+          or simply begin a conversation about your space.
+        </p>
+
+
+        <div class="info-block">
+
+          <div class="info-label">
+            Showroom
+          </div>
+
+          <p>
+            No. 1-A, Easwari Nagar,<br>
+            Velachery Main Road,<br>
+            Gowriwakkam,<br>
+            Chennai – 600 073
+          </p>
+
+        </div>
+
+
+        <div class="info-block">
+
+          <div class="info-label">
+            Call
+          </div>
+
+          <p>
+            <a href="tel:+917448882468">
+              74488 82468
+            </a>
+            <br>
+
+            <a href="tel:+917092222468">
+              70922 22468
+            </a>
+          </p>
+
+        </div>
+
+
+        <div class="info-block">
+
+          <div class="info-label">
+            Email
+          </div>
+
+          <p>
+            <a href="mailto:galxytfm@gmail.com">
+              galxytfm@gmail.com
+            </a>
+          </p>
+
+        </div>
+
+
+        <div class="info-block">
+
+          <div class="info-label">
+            WhatsApp
+          </div>
+
+          <a
+            href="https://wa.me/917448882468"
+            target="_blank"
+            class="whatsapp-enquiry"
+          >
+            Chat with GALXY FURN
+          </a>
+
+        </div>
+
+      </aside>
+
+    </section>
+
   </main>
 
-  <footer><p>&copy; 2026 Galaxy Furniture</p></footer>
+
+  <!-- FOOTER -->
+
+  <footer class="site-footer">
+
+    <p>
+      GALXY FURN · FROM SPACE TO SIGNATURE · CHENNAI
+    </p>
+
+  </footer>
+
+
   <script src="app.js"></script>
+
 </body>
 </html>

@@ -2015,3 +2015,456 @@ em {
   }
 
 }
+
+/* =========================================================
+   JOURNAL FEATURE IMAGE
+   ========================================================= */
+
+.journal-feature-image {
+    width: 260px;
+    height: 150px;
+    overflow: hidden;
+    border: 1px solid rgba(24, 38, 58, 0.15);
+}
+
+.journal-feature-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+@media (max-width: 900px) {
+    .journal-feature-image {
+        width: 100%;
+        max-width: 360px;
+        height: 180px;
+    }
+}
+
+/* =========================================
+   SHOWROOM — EDITORIAL LAYOUT
+   ========================================= */
+
+.showroom-section {
+    width: 100%;
+    min-height: 520px;
+    display: grid;
+    grid-template-columns: 1fr 1.35fr 0.75fr;
+    align-items: stretch;
+    background: #6f202f;
+    overflow: hidden;
+}
+
+
+/* LEFT CONTENT */
+
+.showroom-intro {
+    padding: 85px 55px 75px 8vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.showroom-eyebrow {
+    margin: 0 0 30px;
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    color: #c9b27a;
+    text-transform: uppercase;
+}
+
+.showroom-intro h2 {
+    margin: 0;
+    max-width: 470px;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(48px, 4.5vw, 72px);
+    line-height: 0.95;
+    font-weight: 400;
+    color: #f7efe3;
+}
+
+.showroom-intro h2 em {
+    display: block;
+    color: #c9b27a;
+    font-style: italic;
+    font-weight: 400;
+}
+
+.showroom-description {
+    max-width: 390px;
+    margin: 38px 0 0;
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.8;
+    color: #f3e9dd;
+}
+
+
+/* CENTER IMAGE */
+
+.showroom-image {
+    min-height: 520px;
+    overflow: hidden;
+    position: relative;
+}
+
+.showroom-image img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    object-position: center;
+}
+
+
+/* RIGHT LOCATION */
+
+.showroom-location {
+    padding: 70px 55px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: #101d2e;
+}
+
+.location-eyebrow {
+    margin: 0 0 22px;
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    color: #c9b27a;
+}
+
+.showroom-location h3 {
+    margin: 0 0 30px;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(34px, 3vw, 48px);
+    line-height: 1;
+    font-weight: 400;
+    color: #f7efe3;
+}
+
+.location-address {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    font-size: 15px;
+    line-height: 1.8;
+    font-weight: 600;
+    color: #f4eadf;
+}
+
+.location-divider {
+    width: 100%;
+    height: 1px;
+    margin: 32px 0 25px;
+    background: rgba(201, 178, 122, 0.35);
+}
+
+.showroom-location a {
+    margin-bottom: 13px;
+    font-family: Arial, sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    color: #c9b27a;
+    text-decoration: none;
+}
+
+.showroom-location a:hover {
+    color: #f7efe3;
+}
+
+
+/* =========================================
+   SHOWROOM — TABLET
+   ========================================= */
+
+@media (max-width: 1100px) {
+
+    .showroom-section {
+        grid-template-columns: 1fr 1.2fr;
+    }
+
+    .showroom-intro {
+        padding-left: 50px;
+    }
+
+    .showroom-location {
+        padding: 55px 45px;
+    }
+
+    .showroom-image {
+        min-height: 450px;
+    }
+
+}
+
+
+/* =========================================
+   SHOWROOM — MOBILE
+   ========================================= */
+
+@media (max-width: 760px) {
+
+    .showroom-section {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .showroom-intro {
+        padding: 65px 30px 50px;
+    }
+
+    .showroom-intro h2 {
+        font-size: 50px;
+    }
+
+    .showroom-description {
+        margin-top: 28px;
+    }
+
+    .showroom-image {
+        width: 100%;
+        height: 360px;
+        min-height: 0;
+    }
+
+    .showroom-location {
+        padding: 55px 30px 65px;
+    }
+
+    .showroom-location h3 {
+        font-size: 40px;
+    }
+
+}
+
+/* =========================================
+   JOURNAL FEATURE IMAGE FIX
+   ========================================= */
+
+.journal-feature-image {
+    width: 100%;
+    height: 100%;
+    min-height: 620px;
+    overflow: hidden;
+}
+
+.journal-feature-image img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    object-position: center;
+}
+
+.journal-feature {
+    display: grid;
+    grid-template-columns: 42% 58%;
+    min-height: 620px;
+}
+
+.journal-feature-image {
+    width: 100%;
+    height: 100%;
+    min-height: 620px;
+    overflow: hidden;
+}
+
+.journal-feature-image img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    object-position: center;
+}
+
+.journal-feature-content {
+    width: 100%;
+    min-height: 620px;
+    box-sizing: border-box;
+}
+
+/* =========================================================
+   GALXY FURN — SHOWROOM SECTION
+   ========================================================= */
+
+.showroom-section {
+    width: 100%;
+    max-width: none;
+    min-height: 620px;
+
+    margin: 0;
+    padding: 0;
+
+    display: grid;
+    grid-template-columns: 42% 58%;
+
+    background: #7a2030;
+    overflow: hidden;
+}
+
+
+/* =========================================================
+   LEFT — SHOWROOM TEXT
+   ========================================================= */
+
+.showroom-intro {
+    min-height: 620px;
+
+    padding: 80px 70px 80px 8vw;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    box-sizing: border-box;
+}
+
+.showroom-eyebrow {
+    margin: 0 0 32px;
+
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+
+    letter-spacing: 3px;
+    text-transform: uppercase;
+
+    color: #c9b27a;
+}
+
+.showroom-intro h2 {
+    max-width: 600px;
+
+    margin: 0;
+
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(50px, 5vw, 78px);
+    font-weight: 400;
+
+    line-height: 0.98;
+    letter-spacing: -2px;
+
+    color: #f7efe3;
+}
+
+.showroom-intro h2 em {
+    display: block;
+
+    margin-top: 4px;
+
+    color: #c9b27a;
+
+    font-style: italic;
+    font-weight: 400;
+}
+
+.showroom-description {
+    max-width: 470px;
+
+    margin: 42px 0 0;
+
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.8;
+
+    color: #f3e9dd;
+}
+
+
+/* =========================================================
+   RIGHT — FURNITURE IMAGE
+   ========================================================= */
+
+.showroom-image {
+    width: 100%;
+    min-height: 620px;
+
+    overflow: hidden;
+
+    background: #211812;
+}
+
+.showroom-image img {
+    width: 100%;
+    height: 100%;
+
+    display: block;
+
+    object-fit: cover;
+    object-position: center;
+
+    transition: transform 0.7s ease;
+}
+
+.showroom-image:hover img {
+    transform: scale(1.02);
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 1000px) {
+
+    .showroom-section {
+        grid-template-columns: 1fr 1fr;
+        min-height: 560px;
+    }
+
+    .showroom-intro {
+        min-height: 560px;
+        padding: 65px 45px;
+    }
+
+    .showroom-image {
+        min-height: 560px;
+    }
+
+    .showroom-intro h2 {
+        font-size: 55px;
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 700px) {
+
+    .showroom-section {
+        display: flex;
+        flex-direction: column;
+
+        min-height: 0;
+    }
+
+    .showroom-intro {
+        min-height: 0;
+
+        padding: 70px 30px 60px;
+    }
+
+    .showroom-intro h2 {
+        font-size: 52px;
+    }
+
+    .showroom-description {
+        margin-top: 30px;
+    }
+
+    .showroom-image {
+        width: 100%;
+        height: 420px;
+        min-height: 420px;
+    }
+
+}

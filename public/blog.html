@@ -3,28 +3,429 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Blog | Galaxy Furniture</title>
+
+  <title>Journal | GALXY FURN</title>
+
   <link rel="stylesheet" href="style.css">
+
+  <style>
+    /* =====================================================
+       GALXY FURN — JOURNAL
+       ===================================================== */
+
+    .journal-page {
+      background: #e7dece;
+      color: #0d192b;
+    }
+
+    .journal-hero {
+      padding: 95px 8% 80px;
+    }
+
+    .journal-eyebrow {
+      margin-bottom: 18px;
+      color: #702236;
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+    }
+
+    .journal-hero h1 {
+      max-width: 850px;
+      margin: 0;
+
+      font-family: var(--serif);
+      font-size: clamp(4rem, 8vw, 7rem);
+      line-height: 0.9;
+      font-weight: 400;
+      letter-spacing: -0.04em;
+    }
+
+    .journal-hero h1 span {
+      color: #702236;
+      font-style: italic;
+    }
+
+    .journal-intro {
+      max-width: 570px;
+      margin-top: 30px;
+
+      color: #4f5967;
+      font-size: 0.92rem;
+      line-height: 1.8;
+    }
+
+    /* FEATURED JOURNAL */
+
+    .journal-feature {
+      margin: 0 5% 90px;
+
+      display: grid;
+      grid-template-columns: 1.25fr 0.75fr;
+
+      min-height: 520px;
+
+      background: #0d192b;
+      color: #f4eee3;
+    }
+
+    .journal-feature-image {
+      min-height: 520px;
+
+      background-image:
+        linear-gradient(
+          rgba(13, 25, 43, 0.12),
+          rgba(13, 25, 43, 0.12)
+        ),
+        url("images/journal.png");
+
+      background-size: cover;
+      background-position: center;
+    }
+
+    .journal-feature-content {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+
+      padding: 60px;
+    }
+
+    .journal-feature-label {
+      margin-bottom: 18px;
+
+      color: #c4a66a;
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+    }
+
+    .journal-feature-content h2 {
+      margin: 0 0 22px;
+
+      font-family: var(--serif);
+      font-size: clamp(2.8rem, 4.5vw, 4.8rem);
+      font-weight: 400;
+      line-height: 0.95;
+    }
+
+    .journal-feature-content p {
+      max-width: 390px;
+      margin: 0 0 28px;
+
+      color: rgba(244, 238, 227, 0.72);
+      font-size: 0.86rem;
+      line-height: 1.8;
+    }
+
+    .journal-read {
+      width: fit-content;
+
+      padding: 13px 19px;
+
+      border: 1px solid #c4a66a;
+
+      color: #f4eee3;
+      text-decoration: none;
+
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+
+      transition: 0.25s ease;
+    }
+
+    .journal-read:hover {
+      background: #702236;
+      border-color: #702236;
+    }
+
+    /* ARTICLE GRID */
+
+    .journal-section {
+      padding: 0 6% 120px;
+    }
+
+    .journal-section-heading {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+
+      margin-bottom: 40px;
+    }
+
+    .journal-section-heading h2 {
+      margin: 0;
+
+      font-family: var(--serif);
+      font-size: clamp(3rem, 5vw, 5rem);
+      font-weight: 400;
+      line-height: 0.95;
+    }
+
+    .journal-section-heading p {
+      max-width: 300px;
+      margin: 0;
+
+      color: #5e6772;
+      font-size: 0.8rem;
+      line-height: 1.7;
+    }
+
+    #blog-list {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .journal-post {
+      padding: 34px;
+
+      min-height: 300px;
+
+      background: #f0e8da;
+      border-top: 3px solid #702236;
+
+      display: flex;
+      flex-direction: column;
+    }
+
+    .journal-post h3 {
+      margin: 0 0 18px;
+
+      font-family: var(--serif);
+      font-size: 2rem;
+      font-weight: 400;
+      line-height: 1.05;
+    }
+
+    .journal-post .date {
+      order: -1;
+
+      margin-bottom: 18px;
+
+      color: #702236;
+      font-size: 0.63rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+    }
+
+    .journal-post p {
+      margin: 0 0 25px;
+
+      color: #59636f;
+      font-size: 0.82rem;
+      line-height: 1.8;
+    }
+
+    .journal-post-link {
+      margin-top: auto;
+
+      color: #702236;
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+      text-decoration: none;
+    }
+
+    .journal-post-link:hover {
+      color: #0d192b;
+    }
+
+    /* MOBILE */
+
+    @media (max-width: 900px) {
+      .journal-feature {
+        grid-template-columns: 1fr;
+      }
+
+      .journal-feature-image {
+        min-height: 360px;
+      }
+
+      #blog-list {
+        grid-template-columns: 1fr;
+      }
+
+      .journal-section-heading {
+        display: block;
+      }
+
+      .journal-section-heading p {
+        margin-top: 20px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .journal-hero {
+        padding: 70px 7% 60px;
+      }
+
+      .journal-hero h1 {
+        font-size: 4rem;
+      }
+
+      .journal-feature {
+        margin: 0 4% 70px;
+      }
+
+      .journal-feature-content {
+        padding: 35px;
+      }
+
+      .journal-section {
+        padding: 0 5% 80px;
+      }
+    }
+  </style>
 </head>
-<body>
-  <header>
-    <nav>
-      <div class="logo">GALAXY <span>FURNITURE</span></div>
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="products.html">Products</a></li>
-        <li><a href="blog.html">Blog</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
+
+<body class="journal-page">
+
+  <!-- HEADER -->
+
+  <header class="site-header">
+
+    <nav class="navbar">
+
+      <a href="index.html" class="brand">
+        <span class="brand-title">GALXY FURN</span>
+        <span class="brand-tagline">FROM SPACE TO SIGNATURE</span>
+      </a>
+
+      <div class="nav-links">
+
+        <a href="index.html">Home</a>
+
+        <a href="products.html">Collections</a>
+
+        <a href="blog.html">Journal</a>
+
+        <a href="index.html#showroom">Showroom</a>
+
+      </div>
+
+      <div class="nav-actions">
+
+        <a
+          href="https://wa.me/917448882468"
+          class="nav-whatsapp"
+          target="_blank"
+        >
+          WhatsApp
+        </a>
+
+        <a href="signin.html" class="nav-signin">
+          Sign In
+        </a>
+
+      </div>
+
     </nav>
+
   </header>
 
-  <main class="page">
-    <h1>Furniture Tips & Ideas</h1>
-    <div id="blog-list"></div>
+
+  <!-- JOURNAL -->
+
+  <main>
+
+    <section class="journal-hero">
+
+      <div class="journal-eyebrow">
+        GALXY FURN · THE JOURNAL
+      </div>
+
+      <h1>
+        Ideas for<br>
+        <span>better spaces.</span>
+      </h1>
+
+      <p class="journal-intro">
+        Thoughts on furniture, interiors and the small decisions
+        that make a space feel distinctly yours.
+      </p>
+
+    </section>
+
+
+    <!-- FEATURE -->
+
+    <section class="journal-feature">
+
+      <div class="journal-feature-image"></div>
+
+      <div class="journal-feature-content">
+
+        <div class="journal-feature-label">
+          Featured · The GALXY Journal
+        </div>
+
+        <h2>
+          The art of making a room feel like home.
+        </h2>
+
+        <p>
+          Furniture does more than fill a room. The right proportions,
+          materials and placement can completely change how a space
+          feels and how people experience it.
+        </p>
+
+        <a href="#journal-articles" class="journal-read">
+          Explore the journal
+        </a>
+
+      </div>
+
+    </section>
+
+
+    <!-- ARTICLES -->
+
+    <section class="journal-section" id="journal-articles">
+
+      <div class="journal-section-heading">
+
+        <h2>
+          From the journal.
+        </h2>
+
+        <p>
+          Practical ideas, thoughtful interiors and inspiration
+          for creating spaces with character.
+        </p>
+
+      </div>
+
+
+      <div id="blog-list">
+
+        <!-- Existing MongoDB articles will load here -->
+
+      </div>
+
+    </section>
+
   </main>
 
-  <footer><p>&copy; 2026 Galaxy Furniture</p></footer>
+
+  <!-- FOOTER -->
+
+  <footer class="site-footer">
+
+    <p>
+      GALXY FURN · FROM SPACE TO SIGNATURE · CHENNAI
+    </p>
+
+  </footer>
+
+
   <script src="app.js"></script>
+
 </body>
 </html>
