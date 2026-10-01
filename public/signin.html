@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Sign In | GALXY FURN</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --navy: #0d192b;
+      --navy-dark: #091321;
+      --burgundy: #6f2030;
+      --ivory: #f3eee5;
+      --gold: #c5a15b;
+      --gold-light: #d9bc7c;
+      --text-muted: #9da6b3;
+      --line: rgba(197, 161, 91, 0.28);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      min-height: 100vh;
+      background: var(--navy);
+      color: var(--ivory);
+      font-family: "Manrope", sans-serif;
+    }
+
+    .signin-page {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 48% 52%;
+    }
+
+    /* LEFT SIDE */
+
+    .brand-panel {
+      position: relative;
+      min-height: 100vh;
+      padding: 48px 70px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      overflow: hidden;
+
+      background:
+        linear-gradient(
+          rgba(7, 15, 27, 0.72),
+          rgba(7, 15, 27, 0.88)
+        ),
+        url("images/living.png") center / cover no-repeat;
+    }
+
+    .brand-panel::after {
+      content: "";
+      position: absolute;
+      inset: 25px;
+      border: 1px solid rgba(197, 161, 91, 0.25);
+      pointer-events: none;
+    }
+
+    .brand {
+      position: relative;
+      z-index: 2;
+    }
+
+    .brand-name {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 2.4rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      color: var(--ivory);
+    }
+
+    .brand-tagline {
+      margin-top: 7px;
+      font-size: 0.66rem;
+      font-weight: 700;
+      letter-spacing: 0.28em;
+      color: var(--gold-light);
+    }
+
+    .brand-content {
+      position: relative;
+      z-index: 2;
+      max-width: 520px;
+      padding-bottom: 30px;
+    }
+
+    .eyebrow {
+      margin-bottom: 22px;
+      color: var(--gold-light);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+    }
+
+    .brand-content h1 {
+      font-family: "Cormorant Garamond", serif;
+      font-size: clamp(4rem, 6vw, 6.4rem);
+      line-height: 0.88;
+      font-weight: 500;
+      letter-spacing: -0.035em;
+      color: var(--ivory);
+    }
+
+    .brand-content h1 span {
+      color: #c9969d;
+    }
+
+    .brand-content p {
+      max-width: 470px;
+      margin-top: 32px;
+      color: #c1c7cf;
+      font-size: 0.92rem;
+      line-height: 1.9;
+    }
+
+    .location {
+      margin-top: 35px;
+      color: var(--gold-light);
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+    }
+
+    /* RIGHT SIDE */
+
+    .form-panel {
+      min-height: 100vh;
+      background: var(--ivory);
+      color: var(--navy);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 60px 9%;
+    }
+
+    .signin-box {
+      width: 100%;
+      max-width: 520px;
+    }
+
+    .form-eyebrow {
+      color: var(--burgundy);
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.23em;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+    }
+
+    .signin-box h2 {
+      font-family: "Cormorant Garamond", serif;
+      font-size: clamp(4rem, 5vw, 5.5rem);
+      line-height: 0.92;
+      font-weight: 500;
+      letter-spacing: -0.035em;
+      color: var(--navy);
+    }
+
+    .intro {
+      margin-top: 25px;
+      max-width: 430px;
+      color: #657080;
+      font-size: 0.9rem;
+      line-height: 1.8;
+    }
+
+    .signin-form {
+      margin-top: 48px;
+    }
+
+    .field {
+      margin-bottom: 30px;
+    }
+
+    .field label {
+      display: block;
+      margin-bottom: 11px;
+      color: var(--burgundy);
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+    }
+
+    .field input {
+      width: 100%;
+      border: none;
+      border-bottom: 1px solid #c8c2b8;
+      background: transparent;
+      padding: 13px 0 15px;
+
+      font-family: "Manrope", sans-serif;
+      font-size: 0.94rem;
+      color: var(--navy);
+
+      outline: none;
+      transition: border-color 0.25s ease;
+    }
+
+    .field input::placeholder {
+      color: #9a9fa7;
+    }
+
+    .field input:focus {
+      border-bottom-color: var(--gold);
+    }
+
+    .form-options {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: -7px;
+      margin-bottom: 30px;
+    }
+
+    .remember {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      color: #68717d;
+      font-size: 0.78rem;
+    }
+
+    .remember input {
+      accent-color: var(--burgundy);
+    }
+
+    .forgot {
+      color: var(--burgundy);
+      text-decoration: none;
+      font-size: 0.78rem;
+      font-weight: 600;
+    }
+
+    .forgot:hover {
+      text-decoration: underline;
+    }
+
+    .signin-button {
+      width: 100%;
+      border: 1px solid var(--gold);
+      background: var(--burgundy);
+      color: var(--ivory);
+
+      padding: 17px 25px;
+
+      font-family: "Manrope", sans-serif;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .signin-button:hover {
+      background: var(--navy);
+      border-color: var(--gold);
+      transform: translateY(-2px);
+    }
+
+    .new-account {
+      margin-top: 27px;
+      text-align: center;
+      color: #737b85;
+      font-size: 0.8rem;
+    }
+
+    .new-account a {
+      color: var(--burgundy);
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .new-account a:hover {
+      text-decoration: underline;
+    }
+
+    .back-home {
+      display: inline-block;
+      margin-top: 38px;
+      color: #737b85;
+      font-size: 0.76rem;
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    .back-home:hover {
+      color: var(--burgundy);
+    }
+
+    /* MOBILE */
+
+    @media (max-width: 900px) {
+
+      .signin-page {
+        grid-template-columns: 1fr;
+      }
+
+      .brand-panel {
+        min-height: 520px;
+        padding: 35px 30px;
+      }
+
+      .brand-panel::after {
+        inset: 15px;
+      }
+
+      .brand-content h1 {
+        font-size: 4rem;
+      }
+
+      .form-panel {
+        min-height: auto;
+        padding: 70px 30px;
+      }
+
+      .signin-box h2 {
+        font-size: 4rem;
+      }
+    }
+
+    @media (max-width: 500px) {
+
+      .brand-panel {
+        min-height: 470px;
+      }
+
+      .brand-name {
+        font-size: 2rem;
+      }
+
+      .brand-content h1 {
+        font-size: 3.4rem;
+      }
+
+      .signin-box h2 {
+        font-size: 3.4rem;
+      }
+
+      .form-options {
+        align-items: flex-start;
+        gap: 15px;
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <main class="signin-page">
+
+    <!-- LEFT BRAND PANEL -->
+
+    <section class="brand-panel">
+
+      <div class="brand">
+        <div class="brand-name">GALXY FURN</div>
+        <div class="brand-tagline">FROM SPACE TO SIGNATURE</div>
+      </div>
+
+      <div class="brand-content">
+
+        <div class="eyebrow">
+          GALXY FURN · CHENNAI
+        </div>
+
+        <h1>
+          Spaces crafted<br>
+          for the way<br>
+          <span>you live.</span>
+        </h1>
+
+        <p>
+          Discover considered furniture, refined interiors and
+          timeless pieces created to bring character, comfort
+          and permanence into your home.
+        </p>
+
+        <div class="location">
+          CHENNAI · INDIA
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- LOGIN PANEL -->
+
+    <section class="form-panel">
+
+      <div class="signin-box">
+
+        <div class="form-eyebrow">
+          GALXY FURN · CUSTOMER ACCOUNT
+        </div>
+
+        <h2>
+          Welcome<br>
+          back.
+        </h2>
+
+        <p class="intro">
+          Sign in to continue exploring your GALXY FURN
+          experience, enquiries and saved preferences.
+        </p>
+
+        <form class="signin-form" id="signin-form">
+
+          <div class="field">
+
+            <label for="email">
+              Email
+            </label>
+
+            <input
+              type="email"
+              id="email"
+              placeholder="Your email"
+              required
+            >
+
+          </div>
+
+
+          <div class="field">
+
+            <label for="password">
+              Password
+            </label>
+
+            <input
+              type="password"
+              id="password"
+              placeholder="Your password"
+              required
+            >
+
+          </div>
+
+
+          <div class="form-options">
+
+            <label class="remember">
+              <input type="checkbox">
+              Remember me
+            </label>
+
+            <a href="#" class="forgot">
+              Forgot your password?
+            </a>
+
+          </div>
+
+
+          <button
+            type="submit"
+            class="signin-button"
+          >
+            Sign In&nbsp; →
+          </button>
+
+        </form>
+
+
+        <div class="new-account">
+          New to GALXY FURN?
+          <a href="contact.html">Create an enquiry</a>
+        </div>
+
+
+        <a href="index.html" class="back-home">
+          ← Back to GALXY FURN
+        </a>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <script>
+
+    document.getElementById("signin-form").addEventListener("submit", function(event) {
+
+      event.preventDefault();
+
+      alert("GALXY FURN customer sign-in will be connected soon.");
+
+    });
+
+  </script>
+
+</body>
+</html>     

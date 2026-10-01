@@ -46,10 +46,17 @@
             </div>
 
 
-            <a href="contact.html" class="nav-enquiry">
-                Talk to us
-            </a>
+            <div class="header-actions">
 
+  <a href="https://wa.me/917448882468" class="nav-whatsapp" target="_blank">
+  WhatsApp
+  </a>
+
+  <a href="signin.html" class="nav-signin">
+  Sign In
+  </a>
+
+            </div>
         </nav>
 
     </header>
@@ -688,8 +695,84 @@
 
     </footer>
 
+    
+    <!-- SIGN IN POPUP -->
+<div id="signin-popup" class="signin-popup">
 
-    <script src="app.js"></script>
+  <div class="signin-popup-box">
+
+    <button class="signin-popup-close" id="signin-popup-close">
+      ×
+    </button>
+
+    <div class="signin-popup-eyebrow">
+      GALXY FURN · CHENNAI
+    </div>
+
+    <h2>
+      Welcome back.
+    </h2>
+
+    <p>
+      Step into your GALXY FURN experience and continue
+      exploring spaces crafted for the way you live.
+    </p>
+
+    <div class="signin-popup-actions">
+
+      <a href="signin.html" class="signin-popup-button">
+        Sign In →
+      </a>
+
+      <button id="signin-popup-later" class="signin-popup-later">
+        Maybe later
+      </button>
+
+    </div>
+
+  </div>
+
+</div>
+
+<script src="app.js"></script>
+
+<script>
+  const signinPopup = document.getElementById("signin-popup");
+  const closeSigninPopup = document.getElementById("signin-popup-close");
+  const laterSigninPopup = document.getElementById("signin-popup-later");
+
+  // Show the sign-in popup after 30 seconds
+  const signinPopupTimer = setTimeout(() => {
+    if (signinPopup) {
+      signinPopup.style.display = "flex";
+    }
+  }, 5000);
+
+  // Close using the X button
+  if (closeSigninPopup) {
+    closeSigninPopup.addEventListener("click", () => {
+      signinPopup.style.display = "none";
+      clearTimeout(signinPopupTimer);
+    });
+  }
+
+  // Close using "Maybe later"
+  if (laterSigninPopup) {
+    laterSigninPopup.addEventListener("click", () => {
+      signinPopup.style.display = "none";
+      clearTimeout(signinPopupTimer);
+    });
+  }
+
+  // Close if the visitor clicks outside the popup box
+  if (signinPopup) {
+    signinPopup.addEventListener("click", (event) => {
+      if (event.target === signinPopup) {
+        signinPopup.style.display = "none";
+      }
+    });
+  }
+</script>
 
 </body>
 

@@ -202,7 +202,8 @@ em {
 
 /* TALK BUTTON */
 
-.nav-enquiry {
+.nav-whatsapp,
+.nav-signin  {
     padding: 10px 17px;
 
     border: 1px solid var(--gold);
@@ -218,7 +219,8 @@ em {
     transition: all 0.25s ease;
 }
 
-.nav-enquiry:hover {
+.nav-whatsapp:hover,
+.nav-signin:hover {
     background: var(--burgundy);
     border-color: var(--burgundy);
 }
@@ -1267,112 +1269,203 @@ em {
    15. EXISTING CONTACT / ADMIN SUPPORT
    ========================================================= */
 
+/* =========================================================
+   15. GALXY FURN CONTACT / ENQUIRY
+   ========================================================= */
+
 .page {
-    width: min(1200px, 90%);
-
-    margin: 0 auto;
-
-    padding: 80px 0;
+  width: min(1180px, 90%);
+  margin: 0 auto;
+  padding: 100px 0;
 }
 
 .contact-wrap {
-    display: grid;
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: 80px;
+  align-items: start;
+}
 
-    grid-template-columns: 1fr 1fr;
+/* Contact heading */
 
-    gap: 70px;
+.contact-wrap h1 {
+  font-family: var(--serif);
+  font-size: clamp(3rem, 5vw, 5rem);
+  line-height: 0.95;
+  font-weight: 400;
+  color: var(--navy);
+  margin: 0 0 18px;
+}
+
+.contact-wrap > div:first-child::before {
+  content: "GALXY FURN · CHENNAI";
+  display: block;
+  margin-bottom: 18px;
+  color: var(--burgundy);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+}
+
+/* Intro text */
+
+.contact-wrap > div:first-child::after {
+  content: "Tell us what you are looking for, and let's create a space worth coming home to.";
+  display: block;
+  max-width: 560px;
+  margin-bottom: 38px;
+  color: var(--navy);
+  font-size: 1rem;
+  line-height: 1.8;
+}
+
+/* Enquiry form */
+
+#inquiry-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+#inquiry-form input,
+#inquiry-form textarea {
+  width: 100%;
+  box-sizing: border-box;
+  border: 1px solid rgba(11, 27, 47, 0.22);
+  background: #f8f5ef;
+  color: var(--navy);
+  padding: 18px 20px;
+  font-family: inherit;
+  font-size: 0.95rem;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+#inquiry-form input {
+  min-height: 58px;
+}
+
+#inquiry-form textarea {
+  min-height: 170px;
+  resize: vertical;
+}
+
+#inquiry-form input::placeholder,
+#inquiry-form textarea::placeholder {
+  color: #68717c;
+}
+
+#inquiry-form input:focus,
+#inquiry-form textarea:focus {
+  border-color: var(--burgundy);
+  box-shadow: 0 0 0 2px rgba(112, 31, 49, 0.08);
+}
+
+/* Submit button */
+
+#inquiry-form .btn {
+  width: fit-content;
+  min-width: 190px;
+  margin-top: 6px;
+  padding: 16px 24px;
+  border: 1px solid var(--burgundy);
+  background: var(--burgundy);
+  color: #fff;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+}
+
+#inquiry-form .btn:hover {
+  background: var(--navy);
+  border-color: var(--navy);
+}
+
+/* Status message */
+
+#form-status {
+  margin: 4px 0 0;
+  font-size: 0.9rem;
+  color: var(--burgundy);
+}
+
+/* Contact information panel */
+
+.contact-info {
+  background: var(--navy);
+  color: var(--ivory);
+  padding: 46px;
+  min-height: 100%;
+  box-sizing: border-box;
 }
 
 .contact-info h2 {
-    font-family: var(--serif);
-
-    font-size: 3.5rem;
-
-    font-weight: 400;
-
-    color: var(--navy);
+  font-family: var(--serif);
+  font-size: 2.4rem;
+  font-weight: 400;
+  color: var(--ivory);
+  margin: 0 0 28px;
 }
 
 .contact-info p {
-    margin-top: 15px;
-
-    color: var(--muted);
-
-    font-size: 0.9rem;
+  margin: 0 0 18px;
+  color: rgba(255, 255, 255, 0.82);
+  line-height: 1.7;
 }
 
-form {
-    display: flex;
-
-    flex-direction: column;
-
-    gap: 13px;
-
-    max-width: 550px;
+.contact-info a {
+  color: var(--ivory);
+  text-decoration: none;
 }
 
-input,
-textarea,
-select {
-    width: 100%;
-
-    padding: 14px;
-
-    border: 1px solid var(--line);
-
-    background: var(--white);
-
-    color: var(--ink);
-
-    outline: none;
+.contact-info a:hover {
+  color: var(--gold);
 }
 
-input:focus,
-textarea:focus,
-select:focus {
-    border-color: var(--burgundy);
+/* WhatsApp block */
+
+.contact-info .btn-whatsapp {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 34px;
+  padding: 20px 22px;
+  background: var(--burgundy);
+  color: #fff;
+  text-decoration: none;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  transition: transform 0.2s ease, background 0.2s ease;
 }
 
-textarea {
-    min-height: 150px;
-
-    resize: vertical;
+.contact-info .btn-whatsapp::after {
+  content: "→";
+  font-size: 1.2rem;
 }
 
-button {
-    cursor: pointer;
+.contact-info .btn-whatsapp:hover {
+  background: #8a2940;
+  transform: translateY(-2px);
 }
 
-#form-status {
-    margin-top: 10px;
+/* Mobile */
 
-    color: var(--burgundy);
+@media (max-width: 800px) {
+  .page {
+    padding: 70px 0;
+  }
 
-    font-weight: 700;
-}
+  .contact-wrap {
+    grid-template-columns: 1fr;
+    gap: 45px;
+  }
 
-#admin-panel {
-    width: min(1200px, 90%);
+  .contact-wrap h1 {
+    font-size: 3rem;
+  }
 
-    margin: 0 auto;
-
-    padding: 60px 0;
-}
-
-.inquiry-item {
-    padding: 18px;
-
-    margin-bottom: 12px;
-
-    background: var(--ivory-light);
-
-    border: 1px solid var(--line);
-}
-
-.inquiry-item .meta {
-    color: var(--muted);
-
-    font-size: 0.72rem;
+  .contact-info {
+    padding: 32px;
+  }
 }
 
 
@@ -1748,4 +1841,177 @@ button {
     .footer-column:last-child {
         grid-column: auto;
     }
+}
+
+/* =========================================================
+   30-SECOND SIGN IN POPUP
+   ========================================================= */
+
+.signin-popup {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+
+  display: none;
+  align-items: center;
+  justify-content: center;
+
+  padding: 30px;
+
+  background: rgba(5, 12, 22, 0.78);
+  backdrop-filter: blur(7px);
+}
+
+.signin-popup-box {
+  position: relative;
+
+  width: min(560px, 100%);
+
+  padding: 58px 60px;
+
+  background: var(--ivory);
+
+  border: 1px solid var(--gold);
+
+  box-shadow:
+    0 30px 90px rgba(0, 0, 0, 0.45);
+}
+
+.signin-popup-eyebrow {
+  margin-bottom: 18px;
+
+  color: var(--burgundy);
+
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+.signin-popup-box h2 {
+  margin: 0;
+
+  font-family: var(--serif);
+
+  font-size: clamp(3rem, 6vw, 4.5rem);
+  line-height: 0.95;
+  font-weight: 400;
+
+  color: var(--navy);
+}
+
+.signin-popup-box p {
+  max-width: 430px;
+
+  margin: 24px 0 32px;
+
+  color: #626b76;
+
+  font-size: 0.9rem;
+  line-height: 1.8;
+}
+
+.signin-popup-actions {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+}
+
+.signin-popup-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 14px 25px;
+
+  border: 1px solid var(--gold);
+
+  background: var(--burgundy);
+  color: var(--ivory);
+
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+
+  text-decoration: none;
+
+  transition: all 0.25s ease;
+}
+
+.signin-popup-button:hover {
+  background: var(--navy);
+  border-color: var(--navy);
+}
+
+.signin-popup-later {
+  border: none;
+  background: transparent;
+
+  color: var(--navy);
+
+  font-family: inherit;
+  font-size: 0.75rem;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition: color 0.25s ease;
+}
+
+.signin-popup-later:hover {
+  color: var(--burgundy);
+}
+
+.signin-popup-close {
+  position: absolute;
+  top: 18px;
+  right: 20px;
+
+  width: 38px;
+  height: 38px;
+
+  border: 1px solid rgba(13, 25, 43, 0.18);
+
+  background: transparent;
+  color: var(--navy);
+
+  font-size: 1.4rem;
+  font-weight: 300;
+  line-height: 1;
+
+  cursor: pointer;
+
+  transition: all 0.25s ease;
+}
+
+.signin-popup-close:hover {
+  background: var(--burgundy);
+  border-color: var(--burgundy);
+  color: var(--ivory);
+}
+
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+
+  .signin-popup {
+    padding: 18px;
+  }
+
+  .signin-popup-box {
+    padding: 48px 28px 36px;
+  }
+
+  .signin-popup-actions {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 18px;
+  }
+
+  .signin-popup-button {
+    width: 100%;
+  }
+
 }
